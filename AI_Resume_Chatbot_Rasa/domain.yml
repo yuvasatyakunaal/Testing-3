@@ -1,0 +1,82 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - bot_challenge
+  - upload_resume
+  - ask_skills
+  - ask_experience
+  - ask_summary
+  - ask_techstack
+  - ask_education
+  - ask_contact
+  - ask_general
+  - ask_projects
+  - ask_certifications
+  - compare_skills
+  - get_resume_stats
+  - debug_slots
+
+entities:
+  - skill_name
+  - technology
+
+
+responses:
+  utter_greet:
+    - text: "Hello! I'm your Resume Analysis Assistant. Please upload a PDF resume to get started, or ask me questions about an already uploaded resume."
+
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa. I can help you analyze resumes and answer questions about candidates."
+
+  utter_goodbye:
+    - text: "Goodbye! Feel free to come back anytime you need resume analysis."
+
+  utter_ask_resume_first:
+    - text: "Please upload a resume first before asking questions about it."
+
+  utter_upload_success:
+    - text: "Resume uploaded successfully! Now you can ask me questions about the candidate."
+
+  utter_upload_error:
+    - text: "Sorry, there was an error processing the resume. Please try uploading again."
+
+  utter_default:
+    - text: "I'm not sure I understand. Try asking about skills, experience, education, or upload a new resume."
+
+actions:
+  - action_upload_resume
+  - action_ask_skills
+  - action_ask_experience
+  - action_ask_summary
+  - action_ask_techstack
+  - action_ask_education
+  - action_ask_contact
+  - action_ask_general
+  - action_ask_projects
+  - action_ask_certifications
+  - action_compare_skills
+  - action_get_resume_stats
+  - action_debug_slots
+
+session_config:
+  session_expiration_time: 7200  # 2 hours instead of 60 seconds
+  carry_over_slots_to_new_session: true
+
+slots:
+  resume_text:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+    initial_value: null
+  
+  resume_uploaded:
+    type: bool
+    initial_value: false
+    influence_conversation: false  # Critical: must be false
+    mappings:
+    - type: custom
