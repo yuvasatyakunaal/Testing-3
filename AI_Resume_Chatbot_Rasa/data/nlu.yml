@@ -1,0 +1,133 @@
+version: "3.1"
+nlu:
+  - intent: greet
+    examples: |
+      - hey
+      - hello
+      - hi
+      - hello there
+      - good morning
+      - good evening
+
+  - intent: goodbye
+    examples: |
+      - bye
+      - goodbye
+      - see you later
+      - good night
+
+  - intent: bot_challenge
+    examples: |
+      - are you a bot?
+      - are you a human?
+      - what are you?
+      - who are you?
+
+  - intent: upload_resume
+    examples: |
+      - /upload /path/to/resume.pdf
+      - upload resume
+      - I want to upload a resume
+      - upload PDF
+      - load resume
+
+  - intent: ask_skills
+    examples: |
+      - what are the candidate's skills
+      - tell me about skills
+      - what skills does this person have
+      - list the skills
+      - candidate skills
+      - technical skills
+      - soft skills
+
+  - intent: ask_summary
+    examples: |
+      - summarize the resume
+      - give me a summary
+      - overview of candidate
+      - candidate summary
+      - tell me about this candidate
+
+  - intent: ask_experience
+    examples: |
+      - what's the work experience
+      - tell me about experience
+      - work history
+      - professional experience
+
+  - intent: ask_techstack
+    examples: |
+      - what technologies does this person know
+      - tech stack
+      - programming languages
+      - technical expertise
+
+  - intent: ask_education
+    examples: |
+      - education background
+      - education details
+      - academic background
+      - qualifications
+
+  - intent: ask_contact
+    examples: |
+      - contact information
+      - email address
+      - phone number
+      - contact details
+
+  - intent: ask_projects
+    examples: |
+      - what projects has this person worked on
+      - tell me about projects
+      - project experience
+      - list projects
+      - list all projects
+      - show me projects
+      - project details
+      - what are the projects
+      - tell me about the projects
+      - describe the projects
+      - project work
+      - academic projects
+      - professional projects
+      - development projects
+      - coding projects
+
+
+  - intent: ask_certifications
+    examples: |
+      - what certifications does this person have
+      - certifications and achievements
+      - awards and certifications
+      - professional certifications
+
+  - intent: compare_skills
+    examples: |
+      - does this person have Java skills
+      - compare skills with job requirements
+      - does the candidate know Python
+      - skill matching
+
+  - intent: get_resume_stats
+    examples: |
+      - give me resume statistics
+      - resume stats
+      - analyze resume quality
+      - resume overview stats
+
+  - intent: ask_general
+    examples: |
+      - tell me more about this resume
+      - anything else about this candidate
+      - additional information
+      - more details
+
+  - intent: debug_slots
+    examples: |
+      - debug slots
+      - check slots
+      - show slot values
+      - debug info
+      - slot status
