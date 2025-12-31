@@ -1,0 +1,98 @@
+stories:
+  - story: greet and upload happy path
+    steps:
+      - user: |
+          hello
+        intent: greet
+      - action: utter_greet
+      - user: |
+          /upload /path/to/a/resume.pdf
+        intent: upload_resume
+      - action: action_upload_resume
+      - user: |
+          what are the candidate's skills
+        intent: ask_skills
+      - action: action_ask_skills
+
+  - story: upload and ask for summary
+    steps:
+      - user: |
+          /upload /path/to/resume.pdf
+        intent: upload_resume
+      - action: action_upload_resume
+      - user: |
+          give me a summary
+        intent: ask_summary
+      - action: action_ask_summary
+
+  - story: upload and ask projects
+    steps:
+      - user: |
+          /upload /any/path.pdf
+        intent: upload_resume
+      - action: action_upload_resume
+      - user: |
+          what projects has this person worked on
+        intent: ask_projects
+      - action: action_ask_projects
+
+  - story: ask techstack after upload
+    steps:
+      - user: |
+          /upload ./somefile.pdf
+        intent: upload_resume
+      - action: action_upload_resume
+      - user: |
+          what technologies does this person know
+        intent: ask_techstack
+      - action: action_ask_techstack
+
+  - story: ask education with resume
+    steps:
+      - user: |
+          /upload ./another.pdf
+        intent: upload_resume
+      - action: action_upload_resume
+      - user: |
+          what's the education background
+        intent: ask_education
+      - action: action_ask_education
+
+  - story: ask contact info after resume
+    steps:
+      - user: |
+          /upload /my/cv/file.pdf
+        intent: upload_resume
+      - action: action_upload_resume
+      - user: |
+          contact information
+        intent: ask_contact
+      - action: action_ask_contact
+
+  - story: ask summary without uploading (should be blocked)
+    steps:
+      - user: |
+          give me a summary
+        intent: ask_summary
+      - action: utter_ask_resume_first
+
+  - story: ask skills without resume (should be blocked)
+    steps:
+      - user: |
+          what are the candidate's skills
+        intent: ask_skills
+      - action: utter_ask_resume_first
+
+  - story: bot challenge
+    steps:
+      - user: |
+          are you a bot?
+        intent: bot_challenge
+      - action: utter_iamabot
+
+  - story: goodbye properly handled
+    steps:
+      - user: |
+          bye
+        intent: goodbye
+      - action: utter_goodbye
