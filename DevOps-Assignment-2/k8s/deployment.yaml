@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-assignment-2-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: devops-assignment-2
+  template:
+    metadata:
+      labels:
+        app: devops-assignment-2
+    spec:
+      containers:
+      - name: booking-app
+        image: yuvakunaal/devops-assignment-2-app:latest  # ← Use Docker Hub image
+        ports:
+        - containerPort: 8000
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
