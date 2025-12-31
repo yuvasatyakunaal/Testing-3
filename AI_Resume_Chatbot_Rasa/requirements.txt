@@ -1,4 +1,0 @@
-python-magic
-requests
-python-dotenv
-pytest
