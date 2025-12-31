@@ -1,0 +1,130 @@
+version: "3.1"
+stories:
+  - story: greet user
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - story: say goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: bot challenge
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
+
+  - story: upload resume then ask skills
+    steps:
+      - intent: upload_resume
+      - action: action_upload_resume
+      - slot_was_set:
+          - resume_uploaded: true
+      - intent: ask_skills
+      - action: action_ask_skills
+
+  - story: upload resume then ask summary
+    steps:
+      - intent: upload_resume
+      - action: action_upload_resume
+      - slot_was_set:
+          - resume_uploaded: true
+      - intent: ask_summary
+      - action: action_ask_summary
+
+  - story: upload resume then ask experience
+    steps:
+      - intent: upload_resume
+      - action: action_upload_resume
+      - slot_was_set:
+          - resume_uploaded: true
+      - intent: ask_experience
+      - action: action_ask_experience
+
+  - story: upload resume then ask techstack
+    steps:
+      - intent: upload_resume
+      - action: action_upload_resume
+      - slot_was_set:
+          - resume_uploaded: true
+      - intent: ask_techstack
+      - action: action_ask_techstack
+
+  - story: upload resume then ask education
+    steps:
+      - intent: upload_resume
+      - action: action_upload_resume
+      - slot_was_set:
+          - resume_uploaded: true
+      - intent: ask_education
+      - action: action_ask_education
+
+  - story: upload resume then ask contact
+    steps:
+      - intent: upload_resume
+      - action: action_upload_resume
+      - slot_was_set:
+          - resume_uploaded: true
+      - intent: ask_contact
+      - action: action_ask_contact
+
+  - story: upload resume then ask projects
+    steps:
+      - intent: upload_resume
+      - action: action_upload_resume
+      - slot_was_set:
+          - resume_uploaded: true
+      - intent: ask_projects
+      - action: action_ask_projects
+
+  - story: upload resume then ask certifications
+    steps:
+      - intent: upload_resume
+      - action: action_upload_resume
+      - slot_was_set:
+          - resume_uploaded: true
+      - intent: ask_certifications
+      - action: action_ask_certifications
+
+  - story: multiple queries after upload
+    steps:
+      - intent: upload_resume
+      - action: action_upload_resume
+      - slot_was_set:
+          - resume_uploaded: true
+      - intent: ask_skills
+      - action: action_ask_skills
+      - intent: ask_experience
+      - action: action_ask_experience
+      - intent: ask_techstack
+      - action: action_ask_techstack
+
+  - story: full conversation flow
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: upload_resume
+      - action: action_upload_resume
+      - slot_was_set:
+          - resume_uploaded: true
+      - intent: ask_summary
+      - action: action_ask_summary
+      - intent: ask_skills
+      - action: action_ask_skills
+      - intent: ask_experience
+      - action: action_ask_experience
+      - intent: ask_projects
+      - action: action_ask_projects
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: ask summary without uploading (should be blocked)
+    steps:
+      - intent: ask_summary
+      - action: utter_ask_resume_first
+
+  - story: ask skills without resume (should be blocked)
+    steps:
+      - intent: ask_skills
+      - action: utter_ask_resume_first
